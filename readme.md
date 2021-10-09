@@ -1,0 +1,1 @@
+https://findwork.dev/blog/optimizing-postgres-full-text-search-in-django/

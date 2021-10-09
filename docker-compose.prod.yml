@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+    command: /start
+    volumes:
+      - web-static:/app/OpportunityURL/static
+      - ./logs/web:/var/log/web
+    expose:
+      - "8000"
+    env_file:
+      - .env/.env.prod
+    restart: "on-failure"
+    networks:
+      - customsuppliersolutions_frontend_opp-net
+
+volumes:
+  web-static:
+
+networks:
+  customsuppliersolutions_frontend_opp-net:
+    external: true

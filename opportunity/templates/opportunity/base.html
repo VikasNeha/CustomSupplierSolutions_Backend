@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% include 'opportunity/header_links.html' %}
+
+    {% block head_links %}{% endblock %}
+
+</head>
+
+<body>
+{% include 'opportunity/header_area.html' %}
+
+{% block body_content %}{% endblock %}
+
+{% include 'opportunity/footer_area.html' %}
+</body>
+
+</html>

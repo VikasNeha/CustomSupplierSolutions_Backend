@@ -1,0 +1,11 @@
+Django<3
+cfscrape
+django-cors-headers
+djangorestframework
+djoser
+gunicorn==20.1.0
+https://github.com/darklow/django-suit/tarball/v2
+lxml
+psycopg2-binary==2.8.6
+python-dateutil
+requests

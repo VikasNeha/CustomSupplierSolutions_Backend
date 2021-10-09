@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    command: /start
+    volumes:
+      - .:/app
+      - ./logs/web:/var/log/web
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env/.env.dev
+    depends_on:
+      - db
+    networks:
+      - customsuppliersolutions_frontend_opp-net
+
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=opportunity
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=scraping@1234
+    ports:
+      - "5432:5432"
+    networks:
+      - customsuppliersolutions_frontend_opp-net
+
+volumes:
+  postgres_data:
+
+
+networks:
+  customsuppliersolutions_frontend_opp-net:
+    external: true
